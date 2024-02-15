@@ -2,12 +2,15 @@
 
     <head>
         <title>Anonymous</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     </head>
     
     <body>
-        {% include "component/nav.html" %}
-        {% block content %}
-        {%endblock %}
-        {% include "component/footer.html" %}
+        <!-- {% include "component/nav.html" %} -->
+        <div class="container">
+            {% block content %}
+            {%endblock %}
+         </div>
+        <!-- {% include "component/footer.html" %} -->
     </body>
 </html>
