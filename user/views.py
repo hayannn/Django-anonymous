@@ -1,6 +1,6 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from user.models import User
 
@@ -45,3 +45,9 @@ def signup(request):
             new_user.save()
             login(request, new_user)
             return redirect('board')
+        
+# 로그아웃 함수
+def sign_out(request):
+    if request.method=="GET":
+        logout(request)
+        return redirect("board")
