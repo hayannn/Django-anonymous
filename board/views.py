@@ -20,3 +20,7 @@ def board(request):
             "search_text":search_text,
         }
         return render(request, 'page/index.html', context=context)
+
+def post_write(request):
+    if request.method=="GET":
+        return render(request, "page/post_write.html")
