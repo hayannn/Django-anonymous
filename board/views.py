@@ -14,7 +14,7 @@ def board(request):
         post_set = Post.objects.filter(
             title__icontains=search_text
             ).order_by('-id')
-        paginator = Paginator(post_set, 2)
+        paginator = Paginator(post_set, 6)
 
         post_set = paginator.get_page(page)
 
@@ -50,3 +50,12 @@ def post_write(request):
             content=content,
         ).save()
         return redirect('board')
+    
+def post_detail(request, post_id):
+    if request.method=="GET":
+        print(post_id)
+        post = Post.objects.get(id=post_id)
+        context = {
+            "post":post
+        }
+        return render(request, 'page/post_detail.html', context=context)
