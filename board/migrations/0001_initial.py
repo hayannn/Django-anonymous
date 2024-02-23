@@ -15,6 +15,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
+            name='Comment',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('content', models.TextField()),
+                ('reg_date', models.DateTimeField(auto_now_add=True)),
+            ],
+            options={
+                'db_table': 'comment',
+            },
+        ),
+        migrations.CreateModel(
             name='Post',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -26,17 +37,6 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'post',
-            },
-        ),
-        migrations.CreateModel(
-            name='Comment',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('reg_date', models.DateTimeField(auto_now_add=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='board.post')),
-            ],
-            options={
-                'db_table': 'comment',
             },
         ),
     ]
