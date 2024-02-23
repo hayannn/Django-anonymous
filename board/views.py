@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from board.models import Post
+from board.models import Post, Comment
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import default_storage
@@ -59,3 +59,11 @@ def post_detail(request, post_id):
             "post":post
         }
         return render(request, 'page/post_detail.html', context=context)
+    
+    if request.method=="POST":
+        content = request.POST['content']
+        Comment(
+            post_id=post_id,
+            content=content,
+        ).save()
+        return redirect('post_detail', post_id)

@@ -34,7 +34,9 @@
               <p class="card-subtitle"
                     style="font-size: 12px;"
                     >{{ post.user.nickname }} <small>{{ post.reg_date|date:"Y-m-d" }}</small></p>
-              <p>{{ post.comment_set.all.count }}</p>
+              <p><span class="material-icons" style="font-size: 14px;">
+                chat_bubble_outline
+                </span> {{ post.comment_set.all.count }}</p>
             </div>
             </a>
           </div>

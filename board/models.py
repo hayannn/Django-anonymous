@@ -19,3 +19,6 @@ class Comment(models.Model):
 
     class Meta:
         db_table="comment"
+
+    def __str__(self):
+        return self.content
